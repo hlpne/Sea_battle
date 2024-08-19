@@ -235,7 +235,7 @@ class ConsoleGraphicInterface:                                       # putting b
             res = res.replace("■", "O")
         return res
 
-class Game:
+class Game:                                                            # class for game 
     def __init__(self):
         self.human_board = Board()
         self.human_board.ship_placement()
@@ -248,7 +248,7 @@ class Game:
 
     @staticmethod
     def greet():
-        print(" Добро пожаловать в игру Морской Бой !")
+        print(" Добро пожаловать в игру Морской Бой !")                                        # some rules and hi words
         print("-------------------")
         print(" формат ввода: x y ")
         print(" x - номер строки  ")
@@ -258,14 +258,14 @@ class Game:
         moves = 0
         while True:
             print("-" * 20)
-            print("Доска пользователя:")
+            print("Доска пользователя:")                                                                            # displaying of boards
             print(ConsoleGraphicInterface(self.human.board.busy_dots, self.human.board.alive_ships_dots,
                                           self.human.board.shots, self.human.board.hit, False))
             print("-" * 20)
             print("Доска компьютера:")
             print(ConsoleGraphicInterface(self.ai.board.busy_dots, self.ai.board.alive_ships_dots,
-                                          self.ai.board.shots, self.ai.board.hit, False))
-            if moves % 2 == 0:
+                                          self.ai.board.shots, self.ai.board.hit, True))
+            if moves % 2 == 0:                                                                                    # logic of moves
                 print("-" * 20)
                 print("Ходит пользователь!")
                 repeat = self.human.move()
